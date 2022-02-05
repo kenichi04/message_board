@@ -7,6 +7,11 @@
     <div class="row">
         <div class="col-6">
             {!! Form::model($message, ['route' => 'messages.store']) !!}
+                
+                <div class="form-group">
+                    {!! Form::label('title', 'タイトル') !!}
+                    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                </div>
             
                 <div class="form-group">
                     {{-- 第一引数：カラム、第二引数：ラベル名 --}}
