@@ -44,6 +44,11 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
+        // バリデーション
+        $request->validate([
+            'content' => 'required|max:255',
+        ]);
+        
         $message = new Message;
         $message->content = $request->content;
         $message->save();
@@ -90,6 +95,11 @@ class MessagesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // バリデーション
+        $request->validate([
+            'content' => 'required|max:255';
+        ]);
+        
         $message = Message::findOrFail($id);
         
         $message->content = $request->content;
